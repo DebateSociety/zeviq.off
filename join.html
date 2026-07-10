@@ -195,12 +195,12 @@ Join a global community of young leaders, speakers and changemakers.
 
 <div class="input-box">
 <label for="fullName">Full Name *</label>
-<input type="text" id="fullName" required>
+<input type="text" id="fullName" name="fullName" required>
 </div>
 
 <div class="input-box">
 <label for="email">Email Address *</label>
-<input type="email" id="email" required>
+<input type="email" id="email" name="email" required>
 </div>
 
 </div>
@@ -209,12 +209,12 @@ Join a global community of young leaders, speakers and changemakers.
 
 <div class="input-box">
 <label for="phone">Phone Number *</label>
-<input type="tel" id="phone" required>
+<input type="tel" id="phone" name="phone" required>
 </div>
 
 <div class="input-box">
 <label for="age">Age *</label>
-<input type="number" id="age" min="10" max="25" required>
+<input type="number" id="age" name="age" required>
 </div>
 
 </div>
@@ -223,12 +223,12 @@ Join a global community of young leaders, speakers and changemakers.
 
 <div class="input-box">
 <label for="country">Country *</label>
-<input type="text" id="country" required>
+<input type="text" id="country" name="country" required>
 </div>
 
 <div class="input-box">
 <label for="city">City *</label>
-<input type="text" id="city" required>
+<input type="text" id="city" name="city" required>
 </div>
 
 </div>
@@ -245,12 +245,12 @@ Join a global community of young leaders, speakers and changemakers.
 
 <div class="input-box">
 <label for="school">School / College *</label>
-<input type="text" id="school" required>
+<input type="text" id="school" name="school" required>
 </div>
 
 <div class="input-box">
 <label for="grade">Current Grade/Class *</label>
-<input type="text" id="grade" required>
+<input type="text" id="grade" name="grade" required>
 </div>
 
 </div>
@@ -271,7 +271,7 @@ Have you participated in debates before?
 
 </label>
 
-<select id="experience" required>
+<select id="experience" name="experience">
 
 <option value="">Choose One</option>
 
@@ -335,10 +335,7 @@ Why do you want to join ZEVIQ?
 
 </label>
 
-<textarea
-id="reason"
-rows="6"
-required></textarea>
+<textarea id="reason" name="reason" rows="6" required></textarea>
 
 </div>
 
@@ -350,10 +347,7 @@ Your Biggest Achievement
 
 </label>
 
-<textarea
-id="achievement"
-rows="4"></textarea>
-
+<textarea id="achievement" name="achievement" rows="4"></textarea>
 </div>
 
 <div class="input-box">
@@ -364,9 +358,7 @@ What do you hope to achieve through ZEVIQ?
 
 </label>
 
-<textarea
-id="goals"
-rows="5"></textarea>
+<textarea id="goals" name="goals" rows="5"></textarea>
 
 </div>
 

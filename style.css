@@ -2483,3 +2483,185 @@ transform:translateY(-4px);
 box-shadow:0 10px 30px rgba(255,209,102,.35);
 
 }
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 992px){
+
+.navbar{
+flex-direction:column;
+padding:20px;
+gap:20px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.hero{
+padding:80px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.value-grid,
+.program-grid,
+.team-grid,
+.news-grid,
+.gallery-grid,
+.event-grid{
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.row{
+flex-direction:column;
+}
+
+.input-box{
+width:100%;
+}
+
+.page-header h1{
+font-size:3rem;
+}
+
+.cta h2{
+font-size:2.3rem;
+}
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:768px){
+
+body{
+overflow-x:hidden;
+}
+
+.navbar{
+padding:15px;
+}
+
+.logo img{
+height:55px;
+}
+
+.nav-links{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.join-btn{
+width:100%;
+text-align:center;
+}
+
+.hero{
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:2.4rem;
+line-height:1.2;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.page-header{
+padding:70px 20px;
+}
+
+.page-header h1{
+font-size:2.4rem;
+}
+
+.about-section{
+padding:60px 20px;
+}
+
+.value-grid,
+.program-grid,
+.team-grid,
+.news-grid,
+.gallery-grid,
+.event-grid{
+grid-template-columns:1fr;
+}
+
+.stat-grid{
+grid-template-columns:1fr;
+}
+
+.join-form{
+padding:25px;
+}
+
+.form-section{
+margin-bottom:30px;
+}
+
+.checkbox-grid{
+grid-template-columns:1fr;
+}
+
+.submit-btn{
+width:100%;
+}
+
+footer{
+padding:50px 20px;
+text-align:center;
+}
+
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width:480px){
+
+.hero h1{
+font-size:2rem;
+}
+
+.page-header h1{
+font-size:2rem;
+}
+
+.hero p,
+.page-header p{
+font-size:.95rem;
+}
+
+h2{
+font-size:1.8rem;
+}
+
+.value-card,
+.program-card,
+.team-card,
+.news-card,
+.event-card{
+padding:20px;
+}
+
+.join-form{
+padding:18px;
+}
+
+}
