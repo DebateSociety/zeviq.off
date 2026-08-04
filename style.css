@@ -2867,3 +2867,35 @@ box-shadow:0 16px 35px rgba(108,59,255,.45);
         padding: 30px 20px;
     }
 }
+@media (max-width:768px){
+
+    .navbar{
+        position:relative;
+        top:0;
+        left:0;
+        transform:none;
+        width:100%;
+        border-radius:0;
+        padding:15px;
+    }
+
+    .nav-links{
+        flex-direction:column;
+        width:100%;
+        align-items:center;
+    }
+
+    .join-btn{
+        width:100%;
+    }
+
+    .logo img{
+        height:50px;
+        width:auto;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+}
