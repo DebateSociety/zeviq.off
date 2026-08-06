@@ -7,7 +7,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAqrOkIQC79m3Cu_FWM_KMzCRTn5e_Q5qU",
+  apiKey: "YOUR_API_KEY",
   authDomain: "zeviq-official.firebaseapp.com",
   projectId: "zeviq-official",
   storageBucket: "zeviq-official.firebasestorage.app",
@@ -23,45 +23,41 @@ console.log("✅ Firebase Connected");
 
 const form = document.getElementById("membershipForm");
 
-if (form) {
+if (!form) {
+    console.error("❌ membershipForm not found.");
+} else {
 
     form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-        const interests = [];
+        const interests = [...document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked')]
+            .map(box => box.value);
 
-        document
-            .querySelectorAll('.checkbox-grid input[type="checkbox"]:checked')
-            .forEach(box => interests.push(box.value));
+        const data = {
+            fullName: document.getElementById("fullName").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            age: document.getElementById("age").value.trim(),
+            country: document.getElementById("country").value.trim(),
+            city: document.getElementById("city").value.trim(),
+            school: document.getElementById("school").value.trim(),
+            grade: document.getElementById("grade").value.trim(),
+            experience: document.getElementById("experience").value,
+            interests: interests,
+            reason: document.getElementById("reason").value.trim(),
+            achievement: document.getElementById("achievement").value.trim(),
+            goals: document.getElementById("goals").value.trim(),
+            submittedAt: serverTimestamp()
+        };
+
+        console.log("📦 DATA TO SAVE:", data);
 
         try {
 
-console.log("FULL NAME:", document.getElementById("fullName").value);
-console.log("EMAIL:", document.getElementById("email").value);
-console.log("PHONE:", document.getElementById("phone").value);
-console.log("CITY:", document.getElementById("city").value);
-console.log("REASON:", document.getElementById("reason").value);
-          
-          
-          await addDoc(collection(db, "members"), {
+            const docRef = await addDoc(collection(db, "members"), data);
 
-                fullName: document.getElementById("fullName").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                age: document.getElementById("age").value,
-                country: document.getElementById("country").value,
-                city: document.getElementById("city").value,
-                school: document.getElementById("school").value,
-                grade: document.getElementById("grade").value,
-                experience: document.getElementById("experience").value,
-                interests: interests,
-                reason: document.getElementById("reason").value,
-                achievement: document.getElementById("achievement").value,
-                goals: document.getElementById("goals").value,
-                submittedAt: serverTimestamp()
-
-            });
+            console.log("✅ Saved:", docRef.id);
 
             alert("🎉 Application Submitted Successfully!");
 
@@ -69,9 +65,9 @@ console.log("REASON:", document.getElementById("reason").value);
 
         } catch (err) {
 
-            console.error(err);
+            console.error("🔥 FIREBASE ERROR:", err);
 
-            alert("❌ Error submitting application.");
+            alert("❌ " + err.message);
 
         }
 
