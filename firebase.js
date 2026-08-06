@@ -6,8 +6,11 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+// ===============================
+// Firebase Configuration
+// ===============================
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyAqrOkIQC79m3Cu_FWM_KMzCRTn5e_Q5qU",
   authDomain: "zeviq-official.firebaseapp.com",
   projectId: "zeviq-official",
   storageBucket: "zeviq-official.firebasestorage.app",
@@ -16,38 +19,47 @@ const firebaseConfig = {
   measurementId: "G-NP736E1R5X"
 };
 
+// ===============================
+// Initialize Firebase
+// ===============================
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 console.log("✅ Firebase Connected");
 
+// ===============================
+// Membership Form
+// ===============================
 const form = document.getElementById("membershipForm");
 
 if (!form) {
-    console.error("❌ membershipForm not found.");
+    console.error("❌ Membership form not found.");
 } else {
 
     form.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-        const interests = [...document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked')]
-            .map(box => box.value);
+        // Collect interests
+        const interests = Array.from(
+            document.querySelectorAll(".checkbox-grid input[type='checkbox']:checked")
+        ).map(box => box.value);
 
+        // Collect form data ONCE
         const data = {
-            fullName: document.getElementById("fullName").value.trim(),
-            email: document.getElementById("email").value.trim(),
-            phone: document.getElementById("phone").value.trim(),
-            age: document.getElementById("age").value.trim(),
-            country: document.getElementById("country").value.trim(),
-            city: document.getElementById("city").value.trim(),
-            school: document.getElementById("school").value.trim(),
-            grade: document.getElementById("grade").value.trim(),
-            experience: document.getElementById("experience").value,
+            fullName: form.fullName.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            age: form.age.value.trim(),
+            country: form.country.value.trim(),
+            city: form.city.value.trim(),
+            school: form.school.value.trim(),
+            grade: form.grade.value.trim(),
+            experience: form.experience.value,
             interests: interests,
-            reason: document.getElementById("reason").value.trim(),
-            achievement: document.getElementById("achievement").value.trim(),
-            goals: document.getElementById("goals").value.trim(),
+            reason: form.reason.value.trim(),
+            achievement: form.achievement.value.trim(),
+            goals: form.goals.value.trim(),
             submittedAt: serverTimestamp()
         };
 
@@ -57,17 +69,17 @@ if (!form) {
 
             const docRef = await addDoc(collection(db, "members"), data);
 
-            console.log("✅ Saved:", docRef.id);
+            console.log("✅ Document ID:", docRef.id);
 
             alert("🎉 Application Submitted Successfully!");
 
             form.reset();
 
-        } catch (err) {
+        } catch (error) {
 
-            console.error("🔥 FIREBASE ERROR:", err);
+            console.error("🔥 Firestore Error:", error);
 
-            alert("❌ " + err.message);
+            alert("❌ " + error.message);
 
         }
 
