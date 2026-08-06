@@ -230,16 +230,3 @@ if (themeBtn) {
     };
 
 }
-const membershipForm = document.getElementById("membershipForm");
-
-if (membershipForm) {
-  membershipForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    alert(
-      "🎉 Thank you for applying to ZEVIQ!\n\nWe have received your application and will contact you soon."
-    );
-
-    membershipForm.reset();
-  });
-}
