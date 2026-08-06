@@ -37,7 +37,14 @@ if (form) {
 
         try {
 
-            await addDoc(collection(db, "members"), {
+console.log("FULL NAME:", document.getElementById("fullName").value);
+console.log("EMAIL:", document.getElementById("email").value);
+console.log("PHONE:", document.getElementById("phone").value);
+console.log("CITY:", document.getElementById("city").value);
+console.log("REASON:", document.getElementById("reason").value);
+          
+          
+          await addDoc(collection(db, "members"), {
 
                 fullName: document.getElementById("fullName").value,
                 email: document.getElementById("email").value,
